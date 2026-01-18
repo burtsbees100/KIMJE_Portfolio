@@ -1,0 +1,44 @@
+@forward "./fonts.scss";
+@forward "./variables";
+@forward "./mixin";
+@forward "./reset";
+
+@use "./variables" as *;
+@use "./mixin" as *;
+
+body {
+  background-color: $white;
+  color: $black;
+}
+#wrap {
+  width: 100%;
+}
+.inner {
+  width: vw(1400);
+  margin: 0 auto;
+}
+h2 {
+  position: absolute;
+  font-family: "DOSIyagi";
+  font-weight: 400;
+  font-size: vw(100);
+  color: $yellow-T;
+  left: vw(80);
+  top: vw(100);
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .inner {
+    width: $breakpoint-tablet;
+    max-width: vw(100);
+    padding: 0 vw(40);
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .inner {
+    width: $breakpoint-mobile;
+    max-width: vw(100);
+    padding: 0 vw(20);
+  }
+}

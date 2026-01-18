@@ -1,0 +1,65 @@
+@use "../../styles/global.scss" as *;
+
+.contact {
+  width: 100%;
+  height: vw(280);
+  background-color: $yellow-T;
+  position: relative;
+  overflow: hidden;
+  .inner {
+    height: 100%;
+    padding: vw(60) 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    h4 {
+      font-size: vw(54);
+      color: #fcf7be;
+      font-weight: 700;
+      margin-bottom: vw(20);
+    }
+    .info-wrap {
+      display: flex;
+      gap: vw(30);
+    }
+  }
+  .character {
+    position: absolute;
+    bottom: vw(-60);
+    right: vw(160);
+    width: vw(50);
+    opacity: 0.2;
+    transition: all 0.3s ease;
+    overflow: visible;
+    &:hover {
+      bottom: vw(-24);
+      opacity: 1;
+      p {
+        &::after {
+          content: attr(data-hover);
+        }
+      }
+    }
+    p {
+      position: absolute;
+      top: vw(-40);
+      right: 0;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: vw(6) vw(10);
+      background-color: #fcf7be;
+      border-radius: vw(10);
+      font-family: "DOSGothic";
+      font-size: vw(16);
+      white-space: nowrap;
+
+      &::after {
+        content: attr(data-default);
+      }
+    }
+    img {
+      width: 100%;
+    }
+  }
+}

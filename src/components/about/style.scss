@@ -1,0 +1,248 @@
+@use "../../styles/global.scss" as *;
+
+.about {
+  width: 100%;
+  height: 100vh;
+  padding-top: vw(80);
+  position: relative;
+  .about_title {
+    h2:last-of-type {
+      top: vw(200);
+    }
+  }
+
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    .about_profile {
+      padding-top: vw(170);
+      .profile_pic {
+        margin-left: vw(10);
+
+        .picture {
+          position: relative;
+          img {
+            width: vw(260);
+            height: auto;
+          }
+        }
+
+        .pic_element {
+          position: absolute;
+          &:nth-of-type(1) {
+            top: vw(-12);
+            left: vw(7);
+            animation: pulse 2s ease-in-out infinite;
+            img {
+              width: vw(36);
+              height: auto;
+            }
+          }
+          &:nth-of-type(2) {
+            bottom: vw(24);
+            right: vw(4);
+            animation: float 6s ease-in-out infinite;
+            img {
+              width: vw(38);
+              height: auto;
+            }
+          }
+          &:nth-of-type(3) {
+            top: vw(28);
+            left: vw(-10);
+          }
+          &:nth-of-type(4) {
+            top: vw(-20);
+            left: vw(42);
+            &.diamond {
+              animation-delay: 0.4s;
+            }
+          }
+          &.diamond {
+            width: vw(9);
+            height: vw(9);
+            animation: twinkling 3s ease-in-out infinite;
+            .pixel {
+              position: absolute;
+              width: vw(3);
+              height: vw(3);
+              background: $black;
+              display: block;
+
+              &:nth-child(1) {
+                top: 0;
+                left: vw(3);
+              }
+              &:nth-child(2) {
+                top: vw(3);
+                left: 0;
+              }
+              &:nth-child(3) {
+                top: vw(3);
+                left: vw(6);
+              }
+              &:nth-child(4) {
+                top: vw(6);
+                left: vw(3);
+              }
+            }
+          }
+        }
+      }
+
+      .profile_name {
+        margin-top: vw(40);
+        display: flex;
+        align-items: center;
+        gap: vw(14);
+        .name_ko {
+          font-size: vw(28);
+          font-weight: 700;
+        }
+        .name_en {
+          font-size: vw(22);
+          font-weight: 500;
+        }
+      }
+      .birth_date {
+        margin-top: vw(10);
+      }
+      .short_bio {
+        margin-top: vw(90);
+        color: $gray;
+        h5 {
+          font-family: "DOSIyagi";
+          font-size: vw(50);
+          font-weight: 400;
+          margin-bottom: vw(6);
+        }
+        p {
+          font-size: vw(20);
+          font-weight: 300;
+          margin-bottom: vw(2);
+        }
+      }
+    }
+    .about_details {
+      margin-top: vw(40);
+      .detail_section {
+        margin-bottom: vw(80);
+        &:last-child {
+          margin-bottom: 0;
+        }
+        .detail_title {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          gap: vw(42);
+          margin-bottom: vw(20);
+          .title {
+            font-family: "SBAggro";
+            font-weight: 500;
+            font-size: vw(28);
+          }
+          .line {
+            width: vw(748);
+            height: vw(1);
+            background-color: $black;
+          }
+        }
+        .timeline_list {
+          width: vw(748);
+          margin-left: auto;
+          .timeline_item {
+            display: flex;
+            font-size: vw(18);
+            margin-bottom: vw(14);
+            .period {
+              width: vw(190);
+              font-weight: 700;
+            }
+            .info {
+              font-weight: 500;
+              display: flex;
+              .desc {
+                margin-left: vw(8);
+              }
+            }
+          }
+        }
+        .skill_list {
+          width: vw(765);
+          margin-left: auto;
+          display: grid;
+          grid-template-columns: repeat(8, 1fr);
+          gap: vw(30) vw(16);
+          .skill_item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: vw(12);
+            .skill_icon {
+              width: vw(50);
+              height: vw(50);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              img {
+                max-width: 100%;
+                max-height: 100%;
+                width: auto;
+                height: auto;
+                object-fit: contain;
+              }
+            }
+            .skill_name {
+              text-align: center;
+              font-size: vw(15);
+              font-weight: 400;
+              color: $gray;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-14px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes twinkling {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}

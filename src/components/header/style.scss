@@ -1,0 +1,59 @@
+@use "../../styles/global.scss" as *;
+
+.header {
+  width: 100%;
+  height: vw(80);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+
+  opacity: 0;
+  transform: translateY(vw(-20));
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  background-color: $white;
+
+  &.afterProject {
+    background-color: $black;
+    color: $white;
+  }
+
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      font-size: vw(18);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      img {
+        width: vw(20);
+        margin-right: vw(8);
+      }
+    }
+    .navigation {
+      ul {
+        display: flex;
+        font-size: vw(18);
+        font-weight: 600;
+        gap: vw(40);
+        li {
+          :hover {
+            color: #eac648;
+          }
+        }
+      }
+    }
+  }
+}
+
+.home.entered {
+  .header {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

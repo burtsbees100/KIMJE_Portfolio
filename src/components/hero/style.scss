@@ -1,0 +1,207 @@
+@use "../../styles/global.scss" as *;
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  padding-top: vw(80);
+  overflow: hidden;
+  .inner {
+    .heroTitle {
+      margin-top: vw(148);
+      margin-left: vw(-8);
+      h3 {
+        font-family: "SBAggro";
+        font-weight: 500;
+        font-size: vw(114);
+      }
+      .TitleSecond {
+        display: flex;
+        align-items: center;
+        position: relative;
+        gap: vw(120);
+        img {
+          position: absolute;
+          width: vw(78);
+          height: auto;
+          top: 3%;
+          left: 13%;
+          animation: spin 6s linear infinite;
+          transform-origin: 50% 55%;
+          animation-delay: 0.8s;
+        }
+      }
+    }
+    .description {
+      margin-top: vw(120);
+      display: flex;
+      flex-direction: column;
+      gap: vw(8);
+      p {
+        font-size: vw(16);
+        font-weight: 600;
+      }
+    }
+  }
+  .notification {
+    position: fixed;
+    bottom: vw(10);
+    right: vw(10);
+
+    overflow: hidden;
+    cursor: pointer;
+    width: vw(220);
+    height: vw(54);
+    background-color: #fffef8;
+    border: vw(2) solid #f0f0f0;
+    border-radius: vw(10);
+    box-shadow: vw(2) vw(2) vw(2) vw(0) rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    gap: vw(20);
+    align-items: center;
+
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    img {
+      z-index: 1;
+      margin-left: vw(14);
+      width: vw(30);
+      transform-origin: 50% 0%;
+      animation: bellShake 3s ease-in-out infinite;
+    }
+    H5 {
+      z-index: 1;
+      font-family: "DOSGothic";
+      font-weight: 400;
+      font-size: vw(28);
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 140%;
+      height: 100%;
+      background-color: $yellow-T;
+      transform: skewX(22deg);
+      transition: transform 0.8s ease, left 0.8s ease;
+      z-index: 0;
+    }
+    &.active {
+      border: vw(2) solid $yellow-L;
+      &::before {
+        left: -10%;
+      }
+      img {
+        transform-origin: 50% 50%;
+      }
+    }
+    &.hide {
+      opacity: 0;
+      transform: translateY(vw(20));
+      pointer-events: none;
+      transition-delay: 0s;
+    }
+  }
+  .floatingLayer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+}
+
+.heroTitle,
+.TitleSecond,
+.description p {
+  opacity: 0;
+  transform: translateY(vw(12));
+}
+.notification {
+  opacity: 0;
+  transform: translateY(vw(12));
+}
+
+.home.entered {
+  .heroTitle {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .TitleSecond {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition-delay: 0.5s;
+  }
+
+  .description {
+    p {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    p:nth-child(1) {
+      transition-delay: 1s;
+    }
+    p:nth-child(2) {
+      transition-delay: 1.2s;
+    }
+    p:nth-child(3) {
+      transition-delay: 1.4s;
+    }
+    p:nth-child(4) {
+      transition-delay: 1.6s;
+    }
+  }
+  .notification {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0s;
+    &.first-load {
+      transition-delay: 1s;
+    }
+    &.hide {
+      opacity: 0;
+      transform: translateY(vw(20));
+      pointer-events: none;
+      transition-delay: 0s;
+    }
+  }
+
+  @keyframes bellShake {
+    0% {
+      transform: rotate(0);
+    }
+    5% {
+      transform: rotate(-12deg);
+    }
+    10% {
+      transform: rotate(12deg);
+    }
+    15% {
+      transform: rotate(-10deg);
+    }
+    20% {
+      transform: rotate(10deg);
+    }
+    25% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(0);
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+}

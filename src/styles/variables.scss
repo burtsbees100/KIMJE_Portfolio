@@ -1,0 +1,23 @@
+@use "sass:math";
+
+$baseWidth: 1920 !default;
+
+@function removeUnit($value) {
+  @if ($value == auto) {
+    @return auto;
+  }
+  @return math.div($value, $value * 0 + 1);
+}
+
+@function vw($value, $base: $baseWidth) {
+  @return (removeUnit(math.div($value, $base)) * 100) * 1vw;
+}
+
+$white: #fff;
+$black: #101010;
+$gray: #d5d5d5;
+$yellow-L: #ffea00;
+$yellow-T: #fff587;
+
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 480px;

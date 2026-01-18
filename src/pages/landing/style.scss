@@ -1,0 +1,230 @@
+@use "../../styles/global.scss" as *;
+
+.landing {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  color: $white;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)),
+    url("/images/landing/curtain1920.png");
+  background-size: cover;
+  background-position: center;
+
+  position: relative;
+
+  .landingCenter {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    opacity: 0;
+    transition: opacity 1s ease;
+    transition-delay: 0.3s;
+
+    &.show {
+      opacity: 1;
+    }
+    .speech {
+      font-size: vw(22);
+      font-family: "Muro";
+      font-weight: 400;
+      color: $black;
+      padding: vw(0) vw(10) vw(6) vw(10);
+      border-radius: vw(5);
+      background: $yellow-L;
+      position: relative;
+
+      animation: speechFloat 2.4s ease-in-out infinite;
+      animation-delay: 1s;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: vw(-7);
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: vw(8) solid transparent;
+        border-right: vw(8) solid transparent;
+        border-top: vw(8) solid $yellow-L;
+      }
+    }
+    .playIcon {
+      margin-top: vw(20);
+      width: vw(50);
+
+      &.active {
+        img {
+          animation: spin 3s linear infinite;
+          cursor: pointer;
+        }
+      }
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transform-origin: 50% 55%;
+      }
+    }
+    p {
+      margin-top: vw(10);
+      font-size: vw(14);
+      font-weight: 400;
+    }
+    .loadingBar {
+      margin-top: vw(28);
+      width: vw(180);
+      height: vw(16);
+      border-radius: vw(100);
+      overflow: hidden;
+      outline: vw(2) solid $white;
+      outline-offset: vw(-1);
+      opacity: 0;
+      transform: translateY(50%);
+      transition: 0.3s ease;
+
+      &.show {
+        opacity: 1;
+        transform: translateY(0%);
+        .loadingBarFill {
+          animation: fillBar 5s linear forwards;
+        }
+      }
+      .loadingBarFill {
+        width: 0%;
+        height: 100%;
+        background-color: $white;
+      }
+    }
+  }
+
+  @keyframes speechFloat {
+    0% {
+      transform: translateY(0);
+    }
+    15% {
+      transform: translateY(vw(-6));
+    }
+    25% {
+      transform: translateY(vw(0));
+    }
+    35% {
+      transform: translateY(vw(-3));
+    }
+    42% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+  @keyframes fillBar {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  .playbarFrame {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .playbarTop {
+      padding: vw(70) vw(80);
+      color: $white;
+      display: flex;
+      justify-content: space-between;
+
+      transform: translateY(-10%);
+      opacity: 0;
+      transition: transform 1.5s ease, opacity 1.5s ease;
+      transition-delay: 0.6s;
+
+      &.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .playTitle {
+        h4 {
+          font-size: vw(22);
+          font-weight: 400;
+        }
+      }
+      .playActions {
+        font-size: vw(28);
+        display: flex;
+        gap: vw(10);
+      }
+    }
+
+    .playbarBottom {
+      padding: vw(30) vw(80);
+
+      transform: translateY(10%);
+      opacity: 0;
+      transition: transform 1.5s ease, opacity 1.5s ease;
+      transition-delay: 0.6s;
+
+      &.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .playTrack {
+        width: 100%;
+        height: vw(6);
+        background-color: $white;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: vw(20);
+          height: vw(20);
+          border-radius: 50%;
+          background-color: $white;
+          top: 50%;
+          right: 0%;
+          transform: translate(0%, -50%);
+        }
+      }
+      .playControls {
+        margin-top: vw(24);
+        display: flex;
+        justify-content: space-between;
+        .playControlsLeft {
+          display: flex;
+          align-items: center;
+          gap: vw(10);
+          font-size: vw(28);
+          span {
+            font-size: vw(18);
+          }
+        }
+        .playControlsRight {
+          font-size: vw(28);
+          display: flex;
+          gap: vw(10);
+        }
+      }
+    }
+  }
+}
