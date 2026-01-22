@@ -310,26 +310,48 @@
     .landingCenter {
       .speech {
         font-size: 20px;
-        padding: 0px 8px 5px 8px;
+        padding: 5px 8px 2px 8px;
         border-radius: 8px;
       }
       .playIcon {
-        margin-top: 20px;
-        width: 46px;
+        margin-top: 24px;
+        width: 42px;
       }
       p {
         margin-top: 14px;
         font-size: 12px;
       }
       .loadingBar {
-        margin-top: 20px;
+        margin-top: 28px;
         width: 140px;
         height: 10px;
+        outline: 1px solid $white;
         &.show {
           .loadingBarFill {
             animation: fillBar 14s linear forwards;
           }
         }
+      }
+    }
+
+    @keyframes speechFloat {
+      0% {
+        transform: translateY(0);
+      }
+      15% {
+        transform: translateY(-8px);
+      }
+      25% {
+        transform: translateY(0);
+      }
+      35% {
+        transform: translateY(-4px);
+      }
+      42% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(0);
       }
     }
 
