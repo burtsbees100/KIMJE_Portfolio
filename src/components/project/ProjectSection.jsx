@@ -11,7 +11,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ProjectSection = ({ type, data, title }) => {
   const [selectedProject, setSelectedProject] = useState(null);
-  const [videoReady, setVideoReady] = useState(false);
 
   const titleRef = useRef(null);
   const barRef = useRef(null);
@@ -128,12 +127,7 @@ const ProjectSection = ({ type, data, title }) => {
           projectTitle={selectedProject.title}
           onClose={() => setSelectedProject(null)}
         >
-          {type === "web" && (
-            <WebAppDetail
-              data={selectedProject}
-              onVideoReady={() => setVideoReady(true)}
-            />
-          )}
+          {type === "web" && <WebAppDetail data={selectedProject} />}
           {type === "video" && <VideoDetail data={selectedProject} />}
         </ProjectModal>
       )}

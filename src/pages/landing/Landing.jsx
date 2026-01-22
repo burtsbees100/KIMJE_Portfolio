@@ -7,24 +7,28 @@ import { useEffect, useState } from "react";
 const Landing = ({ onEnter }) => {
   const [isIntro, setIsIntro] = useState(false);
   const [isActive, setIsActive] = useState(false);
+  const isMobile = window.innerWidth <= 768;
 
   useEffect(() => {
     setIsIntro(true);
+    if (isMobile) setIsActive(true);
   }, []);
 
   return (
     <section className="landing">
       <section className={`landingCenter ${isIntro ? "show" : ""}`}>
-        <span className="speech">{isActive ? "CLICK!" : "HOVER"}</span>
+        <span className="speech">
+          {isMobile ? "TAP!" : isActive ? "CLICK!" : "HOVER"}
+        </span>
         <div
           className={`playIcon ${isActive ? "active" : ""}`}
-          onMouseEnter={() => setIsActive(true)}
-          onMouseLeave={() => setIsActive(false)}
-          onClick={() => {
-            if (isActive) {
-              onEnter();
-            }
+          onMouseEnter={() => {
+            if (!isMobile) setIsActive(true);
           }}
+          onMouseLeave={() => {
+            if (!isMobile) setIsActive(false);
+          }}
+          onClick={onEnter}
         >
           {isActive ? (
             <img src="/images/landing/updateIcon.png" alt="update" />

@@ -1,8 +1,11 @@
+import { useEffect, useState } from "react";
 import { GoArrowUpRight } from "react-icons/go";
 
-const WebAppDetail = ({ data, onVideoReady }) => {
+const WebAppDetail = ({ data }) => {
   const { title, category, modal } = data;
   const { tools, pages, links, preview, previewThumb } = modal;
+
+  const [showVideo, setShowVideo] = useState(false);
 
   const linkMap = {
     github: { label: "Github" },
@@ -18,6 +21,14 @@ const WebAppDetail = ({ data, onVideoReady }) => {
     url,
     label: linkMap[key]?.label,
   }));
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowVideo(true);
+    }, 400);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <article className="webAppDetail">
@@ -92,15 +103,18 @@ const WebAppDetail = ({ data, onVideoReady }) => {
       <div className="detailBody">
         <span className="bodyLine" />
         <div className="videoWrap">
-          <video
-            src={preview}
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={previewThumb}
-            onCanPlay={() => onVideoReady()}
-          />
+          {!showVideo && <img src={previewThumb} alt={`${title} preview`} />}
+          {showVideo && (
+            <video
+              src={preview}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster={previewThumb}
+            />
+          )}
         </div>
       </div>
     </article>
