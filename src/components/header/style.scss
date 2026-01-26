@@ -13,7 +13,9 @@
 
   opacity: 0;
   transform: translateY(vw(-20));
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
   background-color: $white;
 
   &.afterProject {
@@ -35,6 +37,14 @@
         margin-right: vw(8);
       }
     }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      background: none;
+    }
+
     .navigation {
       ul {
         display: flex;
@@ -55,5 +65,95 @@
   .header {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .header {
+    height: 60px;
+    .inner {
+      h1 {
+        font-size: 16px;
+        img {
+          width: 16px;
+          margin-right: 6px;
+        }
+      }
+      .navigation {
+        ul {
+          font-size: 16px;
+          gap: 24px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .header {
+    height: 52px;
+    &.afterProject {
+      .inner {
+        .hamburger {
+          span {
+            background-color: $white;
+          }
+        }
+        .navigation {
+          background: rgba(16, 16, 16, 0.98);
+        }
+      }
+    }
+    .inner {
+      .hamburger {
+        display: flex;
+        span {
+          width: 28px;
+          height: 2px;
+          background: $black;
+          transition:
+            transform 0.5s ease,
+            opacity 0.3s ease;
+        }
+
+        &.open span:nth-child(1) {
+          transform: translateY(8px) rotate(45deg);
+        }
+        &.open span:nth-child(2) {
+          transform: translateX(4px);
+          opacity: 0;
+        }
+        &.open span:nth-child(3) {
+          transform: translateY(-8px) rotate(-45deg);
+        }
+      }
+      .navigation {
+        position: fixed;
+        top: 52px;
+        left: 0px;
+        right: 0px;
+        background: rgba(255, 255, 255, 0.98);
+        opacity: 0;
+        transform: translateY(-10%);
+        pointer-events: none;
+        transition:
+          transform 0.35s ease,
+          opacity 0.25s ease;
+
+        &.open {
+          opacity: 1;
+          transform: translateY(0%);
+          pointer-events: auto;
+        }
+
+        ul {
+          padding: 22px 16px;
+          flex-direction: column;
+          align-items: end;
+          gap: 20px;
+          font-size: 16px;
+        }
+      }
+    }
   }
 }

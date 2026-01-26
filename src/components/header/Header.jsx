@@ -4,14 +4,15 @@ import { useState, useEffect } from "react";
 
 const Header = () => {
   const [afterProject, setAfterProject] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const projectEl = document.getElementById("project");
-    if (!projectEl) return;
-
-    const headerHeight = 80;
+    const headerEl = document.querySelector(".header");
+    if (!projectEl || !headerEl) return;
 
     const onScroll = () => {
+      const headerHeight = headerEl.offsetHeight;
       const projectTop = projectEl.offsetTop;
       const isAfter = window.scrollY + headerHeight > projectTop;
       setAfterProject(isAfter);
@@ -30,7 +31,17 @@ const Header = () => {
           <img src="/images/header/headerIcon.png" alt="headerIcon" />
           KIMJE_v2.0
         </h1>
-        <Navigation />
+
+        <button
+          className={`hamburger ${menuOpen ? "open" : ""}`}
+          onClick={() => setMenuOpen((prev) => !prev)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
+        <Navigation menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       </div>
     </section>
   );

@@ -1,9 +1,6 @@
-import { useState } from "react";
 import "./style.scss";
 
-const Navigation = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-
+const Navigation = ({ menuOpen, setMenuOpen }) => {
   const scrollToSection = (id) => (e) => {
     e.preventDefault();
     setMenuOpen(false);
@@ -24,7 +21,7 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="navigation">
+    <nav className={`navigation ${menuOpen ? "open" : ""}`}>
       <ul>
         <li>
           <a href="#hero" onClick={scrollToSection("hero")}>

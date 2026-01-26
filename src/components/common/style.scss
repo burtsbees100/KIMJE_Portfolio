@@ -10,7 +10,9 @@
   cursor: pointer;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 
   &.show {
     opacity: 1;
@@ -22,6 +24,9 @@
   img {
     width: vw(34);
     height: vw(34);
+  }
+  @media (max-width: $breakpoint-tablet) {
+    display: none;
   }
 }
 body.modal-open {
@@ -88,6 +93,51 @@ body.modal-open {
     }
     100% {
       transform: translateY(0);
+    }
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    .pixel {
+      width: 6px;
+      height: 6px;
+    }
+
+    &.diamond {
+      width: 18px;
+      height: 18px;
+
+      .pixel:nth-child(1) {
+        top: 0;
+        left: 6px;
+      }
+      .pixel:nth-child(2) {
+        top: 6px;
+        left: 0;
+      }
+      .pixel:nth-child(3) {
+        top: 6px;
+        left: 12px;
+      }
+      .pixel:nth-child(4) {
+        top: 12px;
+        left: 6px;
+      }
+    }
+
+    &.offsetUpLeft {
+      width: 12px;
+      height: 12px;
+      .pixel:nth-child(2) {
+        top: 6px;
+        left: 6px;
+      }
+    }
+
+    &.offsetUpRight {
+      .pixel:nth-child(2) {
+        top: 6px;
+        left: -6px;
+      }
     }
   }
 }

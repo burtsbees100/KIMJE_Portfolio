@@ -30,15 +30,15 @@ h2 {
 @media (max-width: $breakpoint-tablet) {
   .inner {
     width: $breakpoint-tablet;
-    max-width: vw(100);
-    padding: 0 vw(40);
+    max-width: 100vw;
+    padding: 0 32px;
   }
 }
 
 @media (max-width: $breakpoint-mobile) {
   .inner {
     width: $breakpoint-mobile;
-    max-width: vw(100);
-    padding: 0 vw(20);
+    max-width: 100vw;
+    padding: 0 16px;
   }
 }
