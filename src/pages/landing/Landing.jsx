@@ -7,12 +7,21 @@ import { useEffect, useState } from "react";
 const Landing = ({ onEnter }) => {
   const [isIntro, setIsIntro] = useState(false);
   const [isActive, setIsActive] = useState(false);
-  const isMobile = window.innerWidth <= 768;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     setIsIntro(true);
     if (isMobile) setIsActive(true);
-  }, []);
+  }, [isMobile]);
 
   return (
     <section className="landing">

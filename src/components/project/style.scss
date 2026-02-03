@@ -63,3 +63,79 @@
     height: vw(60);
   }
 }
+
+@media (max-width: $breakpoint-tablet) {
+  .project {
+    .projectSection {
+      height: auto;
+      padding-top: 0px;
+      &.web {
+        .projectSwiper {
+          padding-top: 200px;
+          margin-left: 32px;
+        }
+      }
+      &.video {
+        .projectSwiper {
+          margin-top: 60px;
+          padding-top: 200px;
+          margin-left: 32px;
+        }
+        .inner {
+          height: 30px;
+          .swiper-bar {
+            bottom: 0px;
+          }
+        }
+      }
+
+      .inner {
+        height: 60px;
+        .swiper-bar {
+          bottom: 0px;
+          width: 704px;
+          height: 5px;
+          .bar-dot {
+            width: 14px;
+            height: 14px;
+          }
+        }
+      }
+    }
+    .divider {
+      height: 120px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .project {
+    .projectSection {
+      &.web {
+        .projectSwiper {
+          padding-top: 140px;
+          margin-left: 0px;
+        }
+      }
+      &.video {
+        .projectSwiper {
+          margin-top: 60px;
+          padding-top: 140px;
+          margin-left: 0px;
+        }
+        .inner {
+          .swiper-bar {
+            bottom: 0px;
+          }
+        }
+      }
+
+      .inner {
+        display: none;
+      }
+    }
+    .divider {
+      height: 100px;
+    }
+  }
+}

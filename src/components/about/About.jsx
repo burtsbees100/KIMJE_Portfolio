@@ -64,6 +64,8 @@ const About = () => {
     return () => ctx.revert();
   }, []);
 
+  const isMobile = window.innerWidth <= 768;
+
   return (
     <section id="about" className="about">
       <div className="about_title" ref={titleRef}>
@@ -74,7 +76,14 @@ const About = () => {
         <article className="about_profile" ref={profileRef}>
           <div className="profile_pic">
             <div className="picture">
-              <img src="/images/about-contact/headshot.png" alt="headshot" />
+              <img
+                src={
+                  isMobile
+                    ? "/images/about-contact/headshot_color.png"
+                    : "/images/about-contact/headshot.png"
+                }
+                alt="headshot"
+              />
               <span className="pic_element">
                 <img
                   src="/images/about-contact/pic_element01.png"

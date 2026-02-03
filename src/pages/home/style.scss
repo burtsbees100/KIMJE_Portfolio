@@ -15,3 +15,12 @@
     margin-top: vw(64);
   }
 }
+
+@media (max-width: $breakpoint-tablet) {
+  .home {
+    .section-divider {
+      height: 34px;
+      margin-top: 80px;
+    }
+  }
+}

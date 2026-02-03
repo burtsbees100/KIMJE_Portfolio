@@ -235,7 +235,7 @@
         }
       }
       .description {
-        margin-top: 90px;
+        margin-top: 190px;
         gap: 14px;
         p {
           font-size: 16px;
@@ -253,6 +253,9 @@
         }
         &:nth-child(4) {
           left: 70% !important;
+        }
+        &:nth-child(7) {
+          top: 94% !important;
         }
       }
     }

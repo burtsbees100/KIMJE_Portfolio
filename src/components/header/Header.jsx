@@ -13,7 +13,8 @@ const Header = () => {
 
     const onScroll = () => {
       const headerHeight = headerEl.offsetHeight;
-      const projectTop = projectEl.offsetTop;
+      const projectTop =
+        projectEl.getBoundingClientRect().top + window.pageYOffset;
       const isAfter = window.scrollY + headerHeight > projectTop;
       setAfterProject(isAfter);
     };

@@ -8,10 +8,10 @@ const Navigation = ({ menuOpen, setMenuOpen }) => {
     const el = document.getElementById(id);
     if (!el) return;
 
-    const top = window.pageYOffset + el.getBoundingClientRect().top;
+    const elementTop = el.getBoundingClientRect().top + window.pageYOffset;
 
     window.scrollTo({
-      top,
+      top: elementTop,
       behavior: "smooth",
     });
 

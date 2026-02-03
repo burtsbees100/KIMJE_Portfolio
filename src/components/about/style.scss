@@ -93,7 +93,7 @@
       .profile_name {
         margin-top: vw(40);
         display: flex;
-        align-items: center;
+        align-items: end;
         gap: vw(14);
         .name_ko {
           font-size: vw(28);
@@ -243,6 +243,219 @@
     }
     100% {
       opacity: 0;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .about {
+    padding-top: 60px;
+    height: auto;
+
+    .about_title {
+      h2:last-of-type {
+        top: 130px;
+      }
+    }
+
+    .inner {
+      flex-direction: column;
+      .about_profile {
+        padding-top: 90px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .profile_pic {
+          .picture {
+            img {
+              width: 160px;
+            }
+          }
+
+          .pic_element {
+            &:nth-of-type(1) {
+              top: -22px;
+              left: 2px;
+              img {
+                width: 30px;
+              }
+            }
+            &:nth-of-type(2) {
+              top: 140px;
+              left: 135px;
+              img {
+                width: 28px;
+              }
+            }
+            &:nth-of-type(3) {
+              top: 16px;
+              left: -4px;
+            }
+            &:nth-of-type(4) {
+              top: -20px;
+              left: 32px;
+            }
+            &.diamond {
+              width: 9px;
+              height: 9px;
+              .pixel {
+                width: 3px;
+                height: 3px;
+                &:nth-child(1) {
+                  top: 0;
+                  left: 3px;
+                }
+                &:nth-child(2) {
+                  top: 3px;
+                  left: 0;
+                }
+                &:nth-child(3) {
+                  top: 3px;
+                  left: 6px;
+                }
+                &:nth-child(4) {
+                  top: 6px;
+                  left: 3px;
+                }
+              }
+            }
+          }
+        }
+
+        .profile_name {
+          margin-top: 10px;
+          .name_ko {
+            font-size: 22px;
+          }
+          .name_en {
+            font-size: 16px;
+          }
+        }
+        .birth_date {
+          display: none;
+        }
+        .short_bio {
+          margin-top: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          color: $black;
+          h5 {
+            display: none;
+            font-size: 30px;
+          }
+          p {
+            font-weight: 400;
+            font-size: 14px;
+            margin-bottom: 3px;
+          }
+        }
+      }
+      .about_details {
+        margin-top: 60px;
+        .detail_section {
+          margin-bottom: 60px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          .detail_title {
+            margin-bottom: 12px;
+            .title {
+              font-size: 18px;
+            }
+            .line {
+              width: 80%;
+            }
+          }
+          .timeline_list {
+            width: 80%;
+            .timeline_item {
+              font-size: 16px;
+              flex-direction: column;
+              margin-bottom: 20px;
+              .period {
+                width: auto;
+              }
+            }
+          }
+          .skill_list {
+            width: 80%;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 30px 20px;
+            .skill_item {
+              gap: 6px;
+              .skill_icon {
+                width: 40px;
+                height: 40px;
+              }
+              .skill_name {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .about {
+    padding-top: 52px;
+
+    .about_title {
+      h2:last-of-type {
+        top: 96px;
+      }
+    }
+
+    .inner {
+      .about_profile {
+        padding-top: 90px;
+
+        .profile_name {
+          .name_ko {
+            font-size: 20px;
+          }
+          .name_en {
+            font-size: 14px;
+          }
+        }
+      }
+      .about_details {
+        .detail_section {
+          margin-bottom: 80px;
+          .detail_title {
+            justify-content: flex-start;
+            margin-bottom: 2px;
+            .title {
+              color: $gray;
+              font-size: 22px;
+            }
+            .line {
+              display: none;
+            }
+          }
+          .timeline_list {
+            width: 100%;
+            .timeline_item {
+              margin-bottom: 40px;
+              .period {
+                margin-bottom: 6px;
+              }
+              .info {
+                flex-direction: column;
+              }
+            }
+          }
+          .skill_list {
+            margin-top: 20px;
+            width: 100%;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px 0px;
+          }
+        }
+      }
     }
   }
 }
