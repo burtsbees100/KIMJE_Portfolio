@@ -32,7 +32,7 @@ const Contact = () => {
         </div>
       </div>
       <div className={`character ${isMobile ? "active" : ""}`}>
-        <p>{isMobile ? "Thanks for visiting!" : "..."}</p>
+        <p data-default="..." data-hover="Thanks for visiting!"></p>
         <img src="/images/about-contact/Pixelcharacter.png" alt="character" />
       </div>
     </section>

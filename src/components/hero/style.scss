@@ -39,12 +39,12 @@
       }
     }
     .description {
-      margin-top: vw(120);
+      margin-top: vw(180);
       display: flex;
       flex-direction: column;
       gap: vw(8);
       p {
-        font-size: vw(16);
+        font-size: vw(18);
         font-weight: 600;
       }
     }
@@ -283,7 +283,7 @@
         }
       }
       .description {
-        margin-top: 30px;
+        margin-top: 40px;
         gap: 14px;
         p {
           font-size: 12px;

@@ -115,5 +115,10 @@
         font-size: 12px;
       }
     }
+    .character.active {
+      p::after {
+        content: attr(data-hover);
+      }
+    }
   }
 }

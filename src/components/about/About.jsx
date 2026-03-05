@@ -119,9 +119,8 @@ const About = () => {
             />
           </div>
           <div className="short_bio">
-            <h5>Cut → Code</h5>
-            <p>“장면을 잘라 흐름을 만들던 저는,</p>
-            <p>이제 코드를 연결해 경험을 만듭니다.”</p>
+            <p>“경계를 넘나드는 시선으로</p>
+            <p>사용자에게 더 명확한 경험을 전달합니다.”</p>
           </div>
         </article>
         <article className="about_details" ref={detailsRef}>
