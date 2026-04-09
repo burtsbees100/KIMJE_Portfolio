@@ -6,8 +6,8 @@ import "./style.scss";
 const Project = () => {
   return (
     <section id="project" className="project">
-      <ProjectSection type="web" data={webAppData} title="WEB & APP" />
       <ProjectSection type="video" data={videoData} title="VIDEO" />
+      <ProjectSection type="web" data={webAppData} title="WEB & APP" />
       <div className="divider" />
     </section>
   );
