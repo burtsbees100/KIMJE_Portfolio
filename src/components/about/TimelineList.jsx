@@ -5,7 +5,9 @@ const TimelineList = ({ items }) => {
         <li key={idx} className="timeline_item">
           <span className="period">{item.period}</span>
           <div className="info">
-            <p className="name">{item.name}</p>
+            <p className="name" translate="no">
+              {item.name}
+            </p>
             <p className="desc">{item.desc}</p>
           </div>
         </li>
